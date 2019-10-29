@@ -1,5 +1,5 @@
 package br.ucsal.experimental20192.cinemateca.enums;
 
-public enum GeneroEnum {
+public enum GeneroAtorEnum {
 	FEMININO, MASCULINO
 }

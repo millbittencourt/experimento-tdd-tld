@@ -1,13 +1,13 @@
 package br.ucsal.experimental20192.cinemateca.domain;
 
-import br.ucsal.experimental20192.cinemateca.enums.GeneroEnum;
+import br.ucsal.experimental20192.cinemateca.enums.GeneroAtorEnum;
 
 public class Ator {
 	String nome;
 	Integer anoNascimento;
-	GeneroEnum genero;
+	GeneroAtorEnum genero;
 
-	public Ator(String nome, Integer anoNascimento, GeneroEnum genero) {
+	public Ator(String nome, Integer anoNascimento, GeneroAtorEnum genero) {
 		super();
 		this.nome = nome;
 		this.anoNascimento = anoNascimento;
@@ -30,11 +30,11 @@ public class Ator {
 		this.anoNascimento = anoNascimento;
 	}
 
-	public GeneroEnum getGenero() {
+	public GeneroAtorEnum getGenero() {
 		return genero;
 	}
 
-	public void setGenero(GeneroEnum genero) {
+	public void setGenero(GeneroAtorEnum genero) {
 		this.genero = genero;
 	}
 }
