@@ -1,6 +1,6 @@
-package br.ucsal.experimental20192.experimento.domain;
+package br.ucsal.experimental20192.cinemateca.domain;
 
-import br.ucsal.experimental20192.experimento.enums.GeneroEnum;
+import br.ucsal.experimental20192.cinemateca.enums.GeneroEnum;
 
 public class Ator {
 	String nome;
