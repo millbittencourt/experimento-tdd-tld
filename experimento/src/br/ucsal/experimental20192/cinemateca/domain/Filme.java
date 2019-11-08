@@ -10,14 +10,14 @@ public class Filme {
     private static int anoLancamento;
     private static String sinopse;
     private static int qtdAtores = 20;
-   // private static List<Ator> elenco = new ArrayList<>();
     private static Ator[] elenco = new Ator[qtdAtores];
-  //  private static GeneroFilmeEnum generoFilme;
+    private static GeneroFilmeEnum generoFilme;
+    private static Filme[] filmes = new Filme[qtdAtores];
 
     //18h12 - 18h23 (11min+6min+5min+1min = 22min)
     public static boolean incluirAtorElenco(Ator ator){
-            for(Ator a: elenco)
-                if(a != null && ator.getNome().equals(a.getNome())) return false;
+        for(Ator a: elenco)
+            if(a != null && ator.getNome().equals(a.getNome())) return false;
 
         if(ator.getAnoNascimento() > anoLancamento) return false;
 
@@ -27,7 +27,7 @@ public class Filme {
                 return true;
             }
         }
-            return false;
+        return false;
     }
 
     //10h15 - 10h29 (14min+2min+1min = 17min)
@@ -52,13 +52,34 @@ public class Filme {
     public static Ator[] consultarElencoPorGenero(GeneroAtorEnum genero){
         Ator[] retorno = new Ator[20];
         int j = 0;
-            for (int i  = 0; i < qtdAtores; i++){
-                if(elenco[i] != null && elenco[i].getGenero().equals(genero)){
-                    retorno[j] = elenco[i];
-                    j++;
-                }
+        for (int i  = 0; i < qtdAtores; i++){
+            if(elenco[i] != null && elenco[i].getGenero().equals(genero)){
+                retorno[j] = elenco[i];
+                j++;
             }
-            return retorno;
+        }
+        return retorno;
+    }
+
+    /*
+        consultarFilmePorGenero:
+        Deve ter como parâmetro o gênero do filme;
+        Este método deve retornar os filmes que sejam do gênero passado como parâmetro;
+        O vetor de retorno deve ter o tamanho máximo permitido para o vetor de filmes (20).
+        As posições não ocupadas do vetor devem conter valor null;
+    */
+    //14h40 - 15h40
+    public static Filme[] consultarFilmePorGenero(GeneroFilmeEnum generoFilme){
+        Filme[] filmesGenero = new Filme[qtdAtores];
+        int j = 0;
+        for(int i = 0; i < qtdAtores; i++)
+        {
+            if(filmes[i] != null && filmes[i].getGeneroFilme().equals(generoFilme)){
+                filmesGenero[j] = filmes[i];
+                j++;
+            }
+        }
+        return filmesGenero;
     }
 
     /*
@@ -77,7 +98,17 @@ public class Filme {
     }
 
 
+
+    public Filme() {
+        if(filmes.length < qtdAtores)
+            for(int i = 0; i < qtdAtores; i++){
+                if(filmes[i] == null)
+                    filmes[i] = this;
+            }
+    }
+
     public Filme(String titulo, int anoLancamento, String sinopse) {
+        super();
         this.titulo = titulo;
         this.anoLancamento = anoLancamento;
         this.sinopse = sinopse;
@@ -108,18 +139,19 @@ public class Filme {
     }
 
     public int getCodigo() {
-        return codigo;
+        return codigo++;
     }
 
     public static Ator[] getElenco() {
         return elenco;
     }
 
-  /*  public static GeneroFilmeEnum getGeneroFilme() {
+    public static GeneroFilmeEnum getGeneroFilme() {
         return generoFilme;
     }
 
     public static void setGeneroFilme(GeneroFilmeEnum generoFilme) {
         Filme.generoFilme = generoFilme;
-    }*/
+    }
+
 }
